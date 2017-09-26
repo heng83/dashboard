@@ -102,7 +102,8 @@ function register() {
 		'cnname' : $('#cnname').val(),
 		'email' : $('#email').val(),
 		'password' : $("#password").val(),
-		'repeat_password' : $("#repeat_password").val()
+		'repeat_password' : $("#repeat_password").val(),
+		'token' : $("#token").val(),
 	}, function(json) {
 		if (json.msg.length > 0) {
 			err_message_quietly(json.msg);

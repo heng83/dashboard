@@ -68,6 +68,9 @@ LANGUAGES   = {
 MAINTAINERS = ['root']
 CONTACT = 'root@open-falcon.org'
 
+# register token
+REGISTER_TOKEN = ''
+
 try:
     from rrd.local_config import *
 except:

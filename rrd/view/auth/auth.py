@@ -39,7 +39,9 @@ def auth_login():
 
         name = request.form.get("name")
         password = request.form.get("password")
-        ldap = request.form.get("ldap") or "0"
+        #ldap = request.form.get("ldap") or "0"
+        #disable ldap
+        ldap = 0
 
         if not name or not password:
             ret["msg"] = "no name or password"
@@ -103,6 +105,11 @@ def auth_register():
         email = request.form.get("email", "")
         password = request.form.get("password", "")
         repeat_password = request.form.get("repeat_password", "")
+        token = request.form.get("token", "")
+
+        if token != config.REGISTER_TOKEN:
+            ret["msg"] = "register limitied"
+            return json.dumps(ret)
 
         if not name or not password or not email or not cnname:
             ret["msg"] = "not all form item entered"
